@@ -27,7 +27,7 @@ void ConfigureServices(IServiceCollection services)
 {
     // Controller support
     services.AddControllers();
-    
+    services.Configure<RouteOptions>(options => options.LowercaseUrls = true);
     // Swagger
     services.AddEndpointsApiExplorer();
     services.AddSwaggerGen();

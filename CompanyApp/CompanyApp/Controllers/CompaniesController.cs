@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace CompanyApp.Controllers
 {
     [ApiController]
-    [Route("/api/companies")]
+    [Route("/api/[controller]")]
     public class CompaniesController : ControllerBase
     {
         private readonly ICompanyRepository _companyRepo;
@@ -15,7 +15,7 @@ namespace CompanyApp.Controllers
         }
 
         // GET /api/companies/{id}
-        [HttpGet("{id}", Name = "CompanyById")]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetCompany(int id)
         {
             try

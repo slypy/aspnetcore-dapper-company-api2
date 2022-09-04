@@ -1,4 +1,4 @@
-# aspnetcore-dapper-company-api
+# aspnetcore-dapper-company-api2
 ASP.NET Core Web API using Dapper
 
 ## Flow

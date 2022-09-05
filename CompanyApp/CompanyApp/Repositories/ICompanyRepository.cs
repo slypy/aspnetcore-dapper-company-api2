@@ -26,5 +26,13 @@ namespace CompanyApp.Repositories
         /// <param name="company">Company to be created</param>
         /// <returns>Created company</returns>
         public Task<Company> CreateCompany(Company company);
+
+        /// <summary>
+        /// Updates an existing company
+        /// </summary>
+        /// <param name="id">Id of a Company to be updated</param>
+        /// <param name="company">Company to be updated</param>
+        /// <returns>Updated company</returns>
+        public Task<Company> UpdateCompany(int id, Company company);
     }
 }

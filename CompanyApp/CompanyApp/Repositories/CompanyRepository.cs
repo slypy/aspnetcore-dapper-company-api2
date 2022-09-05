@@ -50,5 +50,20 @@ namespace CompanyApp.Repositories
                 return newCompany;
             }
         }
+
+        public async Task<Company> UpdateCompany(int id, Company company)
+        {
+            var query = "UPDATE Companies " +
+                        "SET Name = @Name, Address = @Address, Country = @Country " +
+                        "WHERE Id = @Id; " +
+                        "SELECT Name, Address, Country FROM Companies WHERE Id = @Id";
+
+            using (var connection = _context.CreateConnection())
+            {
+                var updatedCompany = await connection.QuerySingleOrDefaultAsync<Company>(query, new { id, company.Name, company.Address, company.Country });
+                
+                return updatedCompany;
+            }
+        }
     }
 }

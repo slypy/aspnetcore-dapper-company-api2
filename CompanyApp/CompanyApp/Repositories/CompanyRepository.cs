@@ -24,5 +24,17 @@ namespace CompanyApp.Repositories
                 return company;
             }
         }
+
+        public async Task<IEnumerable<Company>> GetCompanies()
+        {
+            var query = "SELECT * FROM Companies";
+
+            using (var connection = _context.CreateConnection())
+            {
+                var companies = await connection.QueryAsync<Company>(query);
+                
+                return companies;
+            }
+        }
     }
 }

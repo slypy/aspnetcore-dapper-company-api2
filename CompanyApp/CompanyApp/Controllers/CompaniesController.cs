@@ -84,5 +84,24 @@ namespace CompanyApp.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
+
+        // DELETE /api/companies/{id}
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteCompany(int id)
+        {
+            try
+            {
+                var deleted = await _companyRepo.DeleteCompany(id);
+                if (!deleted)
+                    return NotFound();
+
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                //log error
+                return StatusCode(500, ex.Message);
+            }
+        }
     }
 }

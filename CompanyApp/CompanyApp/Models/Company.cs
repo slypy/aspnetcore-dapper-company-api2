@@ -9,7 +9,9 @@ namespace CompanyApp.Models
     [Table("Companies")]
 	public class Company
 	{
-		public int Id { get; set; }
+        // Id should not be set by the user explicitly in most cases
+        // Id should be auto-incremented by the database
+		public int Id { get; }
 		public string? Name { get; set; }
 		public string? Address { get; set; }
 		public string? Country { get; set; }

@@ -19,5 +19,7 @@ namespace CompanyApp.Repositories
         /// </summary>
         /// <returns>List of companies</returns>
         public Task<IEnumerable<Company>> GetCompanies();
+
+        public Task<Company> CreateCompany(Company company);
     }
 }

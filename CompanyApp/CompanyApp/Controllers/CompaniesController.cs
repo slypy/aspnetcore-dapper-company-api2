@@ -65,5 +65,24 @@ namespace CompanyApp.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
+        
+        // PUT /api/companies/{id}
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateCompany(int id, [FromBody] Company company)
+        {
+            try
+            {
+                var updatedCompany = await _companyRepo.UpdateCompany(id, company);
+                if (updatedCompany == null)
+                    return NotFound();
+
+                return Ok(updatedCompany);
+            }
+            catch (Exception ex)
+            {
+                //log error
+                return StatusCode(500, ex.Message);
+            }
+        }
     }
 }

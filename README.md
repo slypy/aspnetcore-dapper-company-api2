@@ -7,7 +7,7 @@ ASP.NET Core Web API using Dapper
 
 ## Setup
 -  Create CompanyDb by running `initCompanyDB.sql` to your DB server.
--  Dont forget to changes the value of `SqlConnection` in `ConnectionStrings` in `appsetings.json` to your local Db's connection string.
+-  Dont forget to change the value of `SqlConnection` in `ConnectionStrings` in `appsetings.json` to your local Db's connection string.
  
 ## Endpoints
 

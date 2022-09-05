@@ -13,6 +13,11 @@ namespace CompanyApp.Repositories
         /// <param name="id">Id of the company</param>
         /// <returns>Company</returns>
         public Task<Company> GetCompany(int id);
+
+        /// <summary>
+        /// Gets all companies
+        /// </summary>
+        /// <returns>List of companies</returns>
         public Task<IEnumerable<Company>> GetCompanies();
     }
 }

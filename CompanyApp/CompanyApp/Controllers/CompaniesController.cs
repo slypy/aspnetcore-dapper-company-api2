@@ -32,5 +32,21 @@ namespace CompanyApp.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
+
+        // GET /api/companies
+        [HttpGet]
+        public async Task<IActionResult> GetCompanies()
+        {
+            try
+            {
+                var companies = await _companyRepo.GetCompanies();
+                return Ok(companies);
+            }
+            catch (Exception ex)
+            {
+                //log error
+                return StatusCode(500, ex.Message);
+            }
+        }
     }
 }

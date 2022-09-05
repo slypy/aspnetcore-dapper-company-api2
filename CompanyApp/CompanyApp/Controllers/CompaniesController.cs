@@ -1,5 +1,6 @@
 ﻿using CompanyApp.Repositories;
 using Microsoft.AspNetCore.Mvc;
+using CompanyApp.Models;
 
 namespace CompanyApp.Controllers
 {
@@ -41,6 +42,22 @@ namespace CompanyApp.Controllers
             {
                 var companies = await _companyRepo.GetCompanies();
                 return Ok(companies);
+            }
+            catch (Exception ex)
+            {
+                //log error
+                return StatusCode(500, ex.Message);
+            }
+        }
+
+        // POST /api/companies
+        [HttpPost]
+        public async Task<IActionResult> CreateCompany([FromBody] Company company)
+        {
+            try
+            {
+                var newCompany = await _companyRepo.CreateCompany(company);
+                return CreatedAtAction(nameof(GetCompany), new { id = newCompany.Id }, newCompany);
             }
             catch (Exception ex)
             {

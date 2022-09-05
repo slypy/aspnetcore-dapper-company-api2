@@ -34,5 +34,12 @@ namespace CompanyApp.Repositories
         /// <param name="company">Company to be updated</param>
         /// <returns>Updated company</returns>
         public Task<Company> UpdateCompany(int id, Company company);
+
+        /// <summary>
+        /// Deletes an existing company
+        /// </summary>
+        /// <param name="id">Id of a Company to be deleted</param>
+        /// <returns>Boolean value indicating if the company was deleted</returns>
+        public Task<bool> DeleteCompany(int id);
     }
 }

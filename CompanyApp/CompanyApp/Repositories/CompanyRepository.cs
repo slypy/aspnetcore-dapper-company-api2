@@ -65,5 +65,17 @@ namespace CompanyApp.Repositories
                 return updatedCompany;
             }
         }
+
+        public async Task<bool> DeleteCompany(int id)
+        {
+            var query = "DELETE FROM Companies WHERE Id = @Id";
+
+            using (var connection = _context.CreateConnection())
+            {
+                var rowsAffected = await connection.ExecuteAsync(query, new { id });
+                
+                return rowsAffected > 0;
+            }
+        }
     }
 }
